@@ -14,7 +14,7 @@ import { ProfileModule } from './profile/profile.module';
 
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes('/profile', '/auth/logout');
+    consumer.apply(AuthMiddleware).forRoutes('/profile', '/auth/logout', '/posts');
   }
 
 }

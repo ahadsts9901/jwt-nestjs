@@ -18,6 +18,25 @@ const postSchema = new Schema({
         maxlength: 1200,
         trim: true,
     },
+    author_id: {
+        type: Schema.Types.ObjectId,
+        required: [true, 'author id is required']
+    },
+    author: {
+        type: {
+            firstName: {
+                type: String,
+                trim: true,
+                required: [true, "author's firstName is missing"]
+            },
+            lastName: {
+                type: String,
+                trim: true,
+                required: [true, "author's lastName is missing"]
+            },
+        },
+        required: [true, 'author details are required']
+    },
     time: {
         type: Date,
         default: Date.now
