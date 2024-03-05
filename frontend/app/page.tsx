@@ -160,16 +160,26 @@ export default function Home() {
 
   const logout = async () => {
 
-    try {
-      const resp = await axios.post(`${baseUrl}/api/auth/logout`, {}, { withCredentials: true })
-      router.push("/login")
-    } catch (error) {
-      console.log(error);
-      Toast.fire({
-        icon: "error",
-        title: "Can't logout"
-      })
-    }
+    Swal.fire({
+      title: 'Logout ?',
+      showCancelButton: true,
+      cancelButtonColor: "#24232c",
+      confirmButtonText: 'Logout',
+      confirmButtonColor: "#24232c",
+      showLoaderOnConfirm: true,
+      preConfirm: async () => {
+        try {
+          const resp = await axios.post(`${baseUrl}/api/auth/logout`, {}, { withCredentials: true })
+          router.push("/login")
+        } catch (error) {
+          console.log(error);
+          Toast.fire({
+            icon: "error",
+            title: "Can't logout"
+          })
+        }
+      }
+    });
 
   }
 
