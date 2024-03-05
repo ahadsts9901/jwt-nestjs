@@ -98,7 +98,7 @@ const Signup = () => {
 
   return (
     <div className='w-full h-[100vh] flex justify-center items-center'>
-      <form onSubmit={submitHandler} className='m-auto flex flex-col gap-4 p-4 py-8 sm:border sm:shadow-md rounded-xl text-slate-800'>
+      <form onSubmit={submitHandler} className='m-auto flex flex-col gap-4 p-4 py-8 sm:border sm:shadow-md rounded-xl text-zinc-700'>
         <h3 className='font-bold text-2xl w-full text-center'>Signup</h3>
         <input minLength={2} maxLength={8} type="text" ref={firstNameRef} placeholder='First Name' className='w-full p-2 px-4 border rounded-lg ' />
         <input minLength={2} maxLength={8} type="text" ref={lastNameRef} placeholder='Last Name' className='w-full p-2 px-4 border rounded-lg ' />
@@ -115,10 +115,10 @@ const Signup = () => {
             passwordField2 ? <IoIosEyeOff className='cursor-pointer' onClick={() => setPasswordField2(!passwordField2)} /> : <IoIosEye className='cursor-pointer' onClick={() => setPasswordField2(!passwordField2)} />
           }
         </div>
-        <Link href="/login" className='text-[0.8rem] mt-2 pr-2 w-full text-right'>Already have an account? Login</Link>
+        <Link href="/login" className='text-[0.8rem] mt-2 pr-2 w-full text-right'>Already have an account? <span className="text-blue-500">Login</span></Link>
         <p className='w-full flex justify-center items-center gap-4 text-center text-sm font-bold text-red-500 capitalize px-2'>{instructions}</p>
         <p className='w-full flex justify-center items-center gap-4 text-center text-sm font-bold text-green-600 capitalize px-2'>{success}</p>
-        <button className={`w-full font-bold text-white ${isLoading ? "bg-zinc-500" : "bg-slate-800"} p-2 rounded-lg ${isLoading ? "pointer-events-none" : "pointer-events-auto"}`}>
+        <button className={`w-full font-bold text-white ${isLoading ? "bg-zinc-500" : "bg-zinc-700"} p-2 rounded-lg ${isLoading ? "pointer-events-none" : "pointer-events-auto"}`}>
           {
             isLoading && <span className="loader mr-4"></span>
           }
